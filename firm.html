@@ -134,9 +134,7 @@
 </div>
 <div>
 <label class="form-label sm:w-full">Age</label>
-<select id="ageSelect" class="custom-input appearance-none pr-8">
-<option disabled="" selected="" value="">Select age</option>
-</select>
+<input id="ageInput" class="custom-input" placeholder="Enter age" type="text"/>
 </div>
 <div class="sm:col-span-2">
 <label class="form-label">Shoe size (EU)</label>
@@ -314,16 +312,6 @@
 <!-- END: Form Sections -->
 </main>
 <script>
- // Populate age dropdown
- const ageSelect = document.getElementById('ageSelect');
- for (let i = 1; i <= 18; i++) {
-   const opt = document.createElement('option');
-   opt.value = i;
-   opt.textContent = i;
-   ageSelect.appendChild(opt);
- }
-
-
  // Store select ↔ card sync
  const storeSelect = document.getElementById('storeSelect');
  const stores = document.querySelectorAll('[data-store]');
