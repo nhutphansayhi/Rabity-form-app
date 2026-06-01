@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-
-
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Rabity Free Foot Check Booking</title>
+<title>Rabity Booking Confirmation</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 <script>
    tailwind.config = {
      theme: {
        extend: {
-         fontFamily: {
-           sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-         },
          colors: {
-           brand: {
-             orange: '#F35C15',
-             lightOrange: '#FFF3E8',
-             text: '#3A2E28',
-             muted: '#7A6B62',
-             border: '#E8DED8',
-             bg: '#FFFDFB'
+           rabity: {
+             orange: '#F95A00',
+             lightOrange: '#FFF6EE',
+             textDark: '#333333',
+             textMuted: '#666666',
+             border: '#EAEAEA',
+             bg: '#FAFAFA'
            }
+         },
+         fontFamily: {
+           sans: ['Inter', 'sans-serif'],
          }
        }
      }
@@ -32,414 +29,215 @@
  </script>
 <style data-purpose="custom-styles">
    body {
-     background-color: #FFFDFB;
-     color: #3A2E28;
+     font-family: 'Inter', sans-serif;
+     background-color: #FAFAFA;
      -webkit-font-smoothing: antialiased;
    }
-
-
-   .custom-input {
-     @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-sm text-brand-text placeholder-brand-muted outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange;
-     box-sizing: border-box;
+  
+   .status-badge {
+     background: linear-gradient(135deg, #FF8E4F 0%, #F95A00 100%);
    }
 
-
-   .section-number {
-     @apply flex h-6 w-6 items-center justify-center rounded-full bg-brand-orange text-xs font-bold text-white flex-shrink-0;
+   .dashed-border-bottom {
+     border-bottom: 1px dashed #EAEAEA;
    }
-
-
-   .section-title {
-     @apply ml-2 text-sm font-bold text-brand-text;
-   }
-
-
-   .form-section {
-     @apply rounded-2xl border border-brand-border bg-white p-5 shadow-sm;
-   }
-
-
-   .form-label {
-     @apply block text-xs font-semibold text-brand-muted mb-1.5;
-   }
-
-
-   .feature-item {
-     cursor: pointer;
-     transition: all 0.2s ease;
-   }
-   .feature-item:active {
-     transform: scale(0.96);
-   }
-
-
-   .date-arrow {
-     cursor: pointer;
-     transition: all 0.2s;
-     user-select: none;
-   }
-   .date-arrow:active {
-     background-color: #FFF3E8;
+  
+   .feature-card {
+     box-shadow: 0 2px 4px rgba(0,0,0,0.02);
    }
  </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
-<body class="antialiased">
-<main class="mx-auto max-w-md bg-brand-bg pb-8">
-<!-- BEGIN: Header Section -->
-<header class="relative bg-[#FFF7F0] px-6 pb-24 pt-12">
-<!-- Top Bar: Logo & Support -->
-<div class="flex items-center justify-between mb-8">
-<div class="flex items-center gap-2">
-<svg class="h-10 w-10 text-brand-orange" fill="currentColor" viewbox="0 0 24 24">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
-</svg>
-<div>
-<h1 class="text-2xl font-extrabold text-brand-orange tracking-tight leading-none">Rabity</h1>
-<p class="text-[10px] font-semibold text-brand-orange uppercase">Tự do khám phá</p>
-</div>
-</div>
-<button class="flex items-center gap-1.5 rounded-full border border-brand-orange bg-white px-3 py-1.5 text-xs font-medium text-brand-orange shadow-sm">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-         Hỗ trợ
-       </button>
-</div>
-<!-- Title & Description -->
-<div class="relative z-10 w-2/3">
-<h2 class="text-[28px] font-extrabold leading-tight text-[#4A3223] mb-3">Free Foot Check Booking</h2>
-<p class="text-sm text-brand-muted leading-relaxed">Book a free foot check and CloudStep trial for your child at a nearby Rabity store.</p>
-</div>
-<!-- Rabbit Illustration -->
-<div class="absolute bottom-4 right-2 w-32 h-40">
-<!-- Placeholder for Rabbit Illustration -->
-<div class="w-full h-full bg-brand-lightOrange rounded-2xl flex items-center justify-center text-xs text-brand-orange text-center px-2">
-         Rabbit<br/>Illustration
-       </div>
+<body class="bg-rabity-bg text-rabity-textDark min-h-screen">
+<main class="max-w-[400px] mx-auto bg-white min-h-screen shadow-sm relative pb-8">
+<header class="pt-12 pb-4 px-6">
+<div class="flex items-center">
+<img alt="Rabity Logo" class="h-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2R9VLNBarmiti1YRWxJ9fpUkwc6eJlI5-0eQfnXu8lZe7JJVEn3Z1rhrR_5iJ4TiGSvp3SH18K-RckDFbmoY68lP5oBfrkYjub7_s9RxpJQVojPXICOpwTPBbOOmB3M-moDRp-fYbgM9Ff0wjHTDOrwj8nJrs6OxXcxj1hljp0H93cksmsh0vvbTG2JTYpQMJ5880y6t22w8-zDb3ePK3pr4UmMinmsuqp3OAj_wfoGFIitUFHN85OmVy2lQIu7lXE8Wp-idjWA"/>
 </div>
 </header>
-<!-- END: Header Section -->
-<!-- BEGIN: Form Sections -->
-<div class="relative -mt-6 rounded-t-3xl bg-brand-bg px-5 pt-8">
-<!-- Section 1: Child Information -->
-<section class="mb-4 form-section">
-<div class="mb-4 flex items-center">
-<span class="section-number">1.</span>
-<h3 class="section-title">Child Information</h3>
+<div class="px-5 space-y-4">
+<section class="bg-rabity-lightOrange rounded-2xl p-6 flex items-start justify-between relative overflow-hidden">
+<div class="z-10 w-3/5">
+<h1 class="text-2xl font-bold text-rabity-textDark leading-tight mb-2">Booking<br/>Confirmed!</h1>
+<p class="text-sm text-rabity-textMuted leading-relaxed">Your child's Free Foot Check has been successfully booked.</p>
 </div>
-<div class="grid gap-3 sm:grid-cols-2">
-<div>
-<label class="form-label">Child name</label>
-<input class="custom-input" placeholder="Enter child's name" type="text"/>
+<div class="absolute right-0 top-0 bottom-0 w-2/5 flex items-center justify-end pr-4">
+<div class="relative w-24 h-24">
+<svg class="absolute top-2 left-0 w-3 h-3 text-rabity-orange opacity-40" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L0 11l8.5-2.5z"></path></svg>
+<svg class="absolute top-6 right-2 w-2 h-2 text-rabity-orange opacity-30" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L0 11l8.5-2.5z"></path></svg>
+<svg class="absolute bottom-4 left-4 w-2 h-2 text-rabity-orange opacity-50" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L0 11l8.5-2.5z"></path></svg>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full status-badge flex items-center justify-center text-white border-4 border-white shadow-sm z-20 -ml-4">
+<i class="fa-solid fa-check text-2xl"></i>
 </div>
-<div>
-<label class="form-label">Age</label>
-<select id="ageSelect" class="custom-input appearance-none pr-8">
-<option disabled="" selected="" value="">Select age</option>
-</select>
-</div>
-<div class="sm:col-span-2">
-<label class="form-label">Shoe size (EU)</label>
-<input class="custom-input" placeholder="e.g. 27" type="text"/>
+<img alt="Happy Rabbit" class="absolute right-0 bottom-2 w-[70px] z-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjfadQhfegE4GEIhc8SnD6HcsI0cnXiQ_sYCzkIqtZ9DwstiDIYBCCxgbIQOUjdzBVIB7ZzfFldJSCVFo-KRcZJHJvR895icIP_QwFkmtEfoRaEfriN_FkKkvYh8waIHbmyBOc5slm8uVznLJ1Uyce4nJCj0W82JVXL_5knb_o0qdnHmR0GfCLfSUZmTJSSM1kusOtqcHvakiwbed9o6W5uJHHv4rIxDFy_E7TyhLu3Z2ePVmIkAEcFqV3xlxL00RWVF636O41QQ"/>
 </div>
 </div>
 </section>
-<!-- Section 2: Parent Information -->
-<section class="mb-4 form-section">
-<div class="mb-4 flex items-center">
-<span class="section-number">2.</span>
-<h3 class="section-title">Parent Information</h3>
+<section class="bg-white border border-rabity-border rounded-2xl p-5">
+<h2 class="text-base font-bold mb-4">Appointment Summary</h2>
+<div class="space-y-0">
+  
+<div class="py-4 dashed-border-bottom flex flex-col gap-2">
+  <div class="flex items-center justify-between">
+    <div class="w-1/2 text-left flex items-center gap-2">
+      <i class="fa-regular fa-face-smile text-rabity-orange text-lg"></i>
+      <span class="text-sm font-medium">Child name</span>
+    </div>
+    <div class="w-1/2 text-right">
+      <span class="text-sm font-medium">Age</span>
+    </div>
+  </div>
+  <div class="flex items-center justify-between gap-4 mt-1">
+    <div class="w-1/2 bg-rabity-bg border border-rabity-border rounded-lg px-3 py-2 text-sm text-rabity-textMuted text-left">
+      Bảo An
+    </div>
+    <div class="w-1/2 bg-rabity-bg border border-rabity-border rounded-lg px-3 py-2 text-sm text-rabity-textMuted text-right">
+      4
+    </div>
+  </div>
 </div>
-<div class="space-y-3">
-<div>
-<label class="form-label">Parent name</label>
-<input class="custom-input" placeholder="Enter your name" type="text"/>
+
+<div class="flex items-center py-3 dashed-border-bottom">
+<div class="w-8 flex-shrink-0 flex justify-center text-rabity-orange">
+<i class="fa-regular fa-user text-lg"></i>
 </div>
-<div>
-<label class="form-label">Phone number</label>
-<div class="relative">
-<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-brand-muted">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="w-20 flex-shrink-0">
+<span class="text-sm font-medium">Parent</span>
 </div>
-<input class="custom-input" placeholder="Enter phone number" type="tel" style="padding-left: 2.25rem; box-sizing: border-box;"/>
+<div class="flex-grow text-right">
+<span class="text-sm text-rabity-textMuted">Nguyễn Mai • 0901 234 567</span>
 </div>
 </div>
+
+<div class="flex items-center py-3 dashed-border-bottom">
+<div class="w-8 flex-shrink-0 flex justify-center text-rabity-orange">
+<i class="fa-regular fa-building text-lg"></i>
+</div>
+<div class="w-20 flex-shrink-0">
+<span class="text-sm font-medium">Store</span>
+</div>
+<div class="flex-grow text-right">
+<span class="text-sm text-rabity-textMuted">Vincom Đồng Khởi</span>
+</div>
+</div>
+
+<div class="flex items-center py-3 dashed-border-bottom">
+<div class="w-8 flex-shrink-0 flex justify-center text-rabity-orange">
+<i class="fa-regular fa-calendar text-lg"></i>
+</div>
+<div class="w-20 flex-shrink-0">
+<span class="text-sm font-medium">Date</span>
+</div>
+<div class="flex-grow text-right">
+<span class="text-sm text-rabity-textMuted">Sat 24/05/2026</span>
+</div>
+</div>
+
+<div class="flex items-center py-3">
+<div class="w-8 flex-shrink-0 flex justify-center text-rabity-orange">
+<i class="fa-regular fa-clock text-lg"></i>
+</div>
+<div class="w-20 flex-shrink-0">
+<span class="text-sm font-medium">Time</span>
+</div>
+<div class="flex-grow text-right">
+<span class="text-sm text-rabity-textMuted">10:30 AM</span>
+</div>
+</div>
+
 </div>
 </section>
-<!-- Section 3: Preferred Store -->
-<section class="mb-4 form-section">
-<div class="mb-4 flex items-center">
-<span class="section-number">3.</span>
-<h3 class="section-title">Preferred Store</h3>
-</div>
-<div class="relative mb-3">
-<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-brand-muted">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<select id="storeSelect" class="custom-input appearance-none pl-9 pr-8 text-brand-text">
-<option disabled="" selected="" value="">Select a store</option>
-<option value="vincom">Vincom Đồng Khởi</option>
-<option value="aeon">Aeon Tân Phú</option>
-<option value="thiso">Thiso Mall Sala</option>
-</select>
-</div>
-<div class="grid grid-cols-3 gap-2">
-<!-- Store Option 1 (Selected) -->
-<div data-store class="relative cursor-pointer rounded-xl border-2 border-brand-orange bg-brand-lightOrange p-3 text-center">
-<div class="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-brand-orange text-white">
-<svg class="h-3 w-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
-</div>
-<div class="store-icon mx-auto mb-1 flex h-6 w-6 items-center justify-center text-brand-orange">
-<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
-</div>
-<p class="store-label text-xs font-semibold text-brand-text leading-tight">Vincom<br/>Đồng Khởi</p>
-</div>
-<!-- Store Option 2 -->
-<div data-store class="cursor-pointer rounded-xl border border-brand-border p-3 text-center transition hover:border-brand-orange/50">
-<div class="store-icon mx-auto mb-1 flex h-6 w-6 items-center justify-center text-brand-muted">
-<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
-</div>
-<p class="store-label text-xs font-medium text-brand-muted leading-tight">Aeon<br/>Tân Phú</p>
-</div>
-<!-- Store Option 3 -->
-<div data-store class="cursor-pointer rounded-xl border border-brand-border p-3 text-center transition hover:border-brand-orange/50">
-<div class="store-icon mx-auto mb-1 flex h-6 w-6 items-center justify-center text-brand-muted">
-<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
-</div>
-<p class="store-label text-xs font-medium text-brand-muted leading-tight">Thiso<br/>Mall Sala</p>
-</div>
-</div>
-</section>
-<!-- Section 4: Date & Time -->
-<section class="mb-4 form-section">
-<div class="mb-4 flex items-center">
-<span class="section-number">4.</span>
-<h3 class="section-title">Date &amp; Time</h3>
-</div>
-<!-- Date Selector -->
-<div class="mb-5 flex items-center gap-1 overflow-x-auto pb-2 scrollbar-hide">
-<button id="datePrev" class="date-arrow flex h-10 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-brand-border text-brand-muted hover:bg-gray-50">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<div class="flex flex-1 gap-2 px-1">
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-border min-w-[50px] py-1.5 text-center">
-<span class="date-day text-[10px] font-medium text-brand-muted">Fri</span>
-<span class="date-num text-xs font-semibold text-brand-text">23/05</span>
-</div>
-<!-- Selected Date -->
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-orange bg-brand-lightOrange min-w-[50px] py-1.5 text-center relative">
-<span class="date-day text-[10px] font-medium text-brand-orange">Sat</span>
-<span class="date-num text-xs font-bold text-brand-orange">24/05</span>
-</div>
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-border min-w-[50px] py-1.5 text-center">
-<span class="date-day text-[10px] font-medium text-brand-muted">Sun</span>
-<span class="date-num text-xs font-semibold text-brand-text">25/05</span>
-</div>
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-border min-w-[50px] py-1.5 text-center">
-<span class="date-day text-[10px] font-medium text-brand-muted">Mon</span>
-<span class="date-num text-xs font-semibold text-brand-text">26/05</span>
-</div>
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-border min-w-[50px] py-1.5 text-center">
-<span class="date-day text-[10px] font-medium text-brand-muted">Tue</span>
-<span class="date-num text-xs font-semibold text-brand-text">27/05</span>
-</div>
-<div data-date class="flex flex-col items-center justify-center rounded-xl border border-brand-border min-w-[50px] py-1.5 text-center">
-<span class="date-day text-[10px] font-medium text-brand-muted">Wed</span>
-<span class="date-num text-xs font-semibold text-brand-text">28/05</span>
-</div>
-</div>
-<button id="dateNext" class="date-arrow flex h-10 w-8 flex-shrink-0 items-center justify-center rounded-lg border border-brand-border text-brand-muted hover:bg-gray-50">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-</div>
-<!-- Time Selector -->
+<section class="bg-white border border-rabity-border rounded-2xl p-5">
+<h2 class="text-base font-bold mb-4">What to Expect</h2>
 <div class="grid grid-cols-4 gap-2">
-<button data-time class="rounded-xl border border-brand-border py-2 text-sm font-semibold text-brand-text hover:border-brand-orange/50">09:00</button>
-<!-- Selected Time -->
-<button data-time class="rounded-xl bg-brand-orange py-2 text-sm font-bold text-white shadow-md shadow-brand-orange/30">10:30</button>
-<button data-time class="rounded-xl border border-brand-border py-2 text-sm font-semibold text-brand-text hover:border-brand-orange/50">14:00</button>
-<button data-time class="rounded-xl border border-brand-border py-2 text-sm font-semibold text-brand-text hover:border-brand-orange/50">16:00</button>
-<button data-time class="rounded-xl border border-brand-border py-2 text-sm font-semibold text-brand-muted/40 cursor-not-allowed" disabled>17:30</button>
+<div class="feature-card border border-rabity-border rounded-xl p-2 flex flex-col items-center justify-center text-center bg-white h-[88px]">
+<div class="text-rabity-orange mb-1">
+<i class="fa-solid fa-shoe-prints text-xl"></i>
 </div>
-</section>
-<!-- Section 5: What You'll Receive -->
-<section class="mb-6 form-section">
-<div class="mb-4 flex items-center">
-<span class="section-number">5.</span>
-<h3 class="section-title">What You'll Receive Today</h3>
+<span class="text-[10px] leading-tight text-rabity-textMuted">Professional<br/>foot<br/>measurement</span>
 </div>
-<div class="grid grid-cols-2 gap-3">
-<div data-feature class="feature-item rounded-xl border border-brand-border p-3 flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-all">
-<div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-lightOrange text-brand-orange">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="feature-card border border-rabity-border rounded-xl p-2 flex flex-col items-center justify-center text-center bg-white h-[88px]">
+<div class="text-rabity-orange mb-1">
+<i class="fa-solid fa-heart-pulse text-xl"></i>
 </div>
-<span class="text-xs font-semibold text-brand-text text-center leading-tight">Professional foot<br/>measurement</span>
+<span class="text-[10px] leading-tight text-rabity-textMuted">Foot<br/>health<br/>advice</span>
 </div>
-<div data-feature class="feature-item rounded-xl border border-brand-border p-3 flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-all">
-<div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-lightOrange text-brand-orange">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="feature-card border border-rabity-border rounded-xl p-2 flex flex-col items-center justify-center text-center bg-white h-[88px]">
+<div class="text-rabity-orange mb-1">
+<i class="fa-solid fa-socks text-xl"></i>
 </div>
-<span class="text-xs font-semibold text-brand-text text-center leading-tight">Foot<br/>health advice</span>
+<span class="text-[10px] leading-tight text-rabity-textMuted">Right shoes<br/>recommendation</span>
 </div>
-<div data-feature class="feature-item rounded-xl border border-brand-border p-3 flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-all">
-<div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-lightOrange text-brand-orange">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div class="feature-card border border-rabity-border rounded-xl p-2 flex flex-col items-center justify-center text-center bg-white h-[88px]">
+<div class="text-rabity-orange mb-1">
+<i class="fa-solid fa-cloud text-xl"></i>
 </div>
-<span class="text-xs font-semibold text-brand-text text-center leading-tight">Right shoes<br/>recommendation</span>
-</div>
-<div data-feature class="feature-item rounded-xl border border-brand-border p-3 flex flex-col items-center justify-center cursor-pointer select-none active:scale-95 transition-all">
-<div class="mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-brand-lightOrange text-brand-orange">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</div>
-<span class="text-xs font-semibold text-brand-text text-center leading-tight">CloudStep<br/>trial</span>
+<span class="text-[10px] leading-tight text-rabity-textMuted">CloudStep<br/>trial</span>
 </div>
 </div>
 </section>
-<!-- Submit Area -->
-<div class="px-2 pb-6 text-center">
-<button id="bookNowBtn" class="mb-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-brand-orange py-4 text-lg font-bold text-white shadow-lg shadow-brand-orange/30 transition hover:bg-[#E0500F]">
-<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M9 14l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-         Book Now
+<section class="bg-white border border-rabity-border rounded-2xl p-5">
+<h2 class="text-sm font-bold mb-3">Confirmation sent via</h2>
+<div class="flex items-center space-x-6 mb-3">
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 bg-[#0068FF] rounded text-white flex items-center justify-center text-[10px] font-bold">Zalo</div>
+<span class="text-sm font-medium">Zalo</span>
+</div>
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 bg-[#25D366] rounded flex items-center justify-center text-white">
+<i class="fa-solid fa-comment-sms text-xs"></i>
+</div>
+<span class="text-sm font-medium">SMS</span>
+</div>
+</div>
+<p class="text-[11px] text-rabity-textMuted">We'll send you reminders before your appointment.</p>
+</section>
+<section class="pt-2 pb-6 space-y-3">
+<button id="addToCalendarBtn" class="w-full bg-rabity-orange text-white rounded-xl py-4 font-semibold text-sm flex items-center justify-center space-x-2 active:bg-orange-600 transition-colors">
+<i class="fa-regular fa-calendar-plus text-lg"></i>
+<span>Add to Calendar</span>
+</button>
+<button id="viewDirectionsBtn" class="w-full bg-white border border-rabity-orange text-rabity-orange rounded-xl py-4 font-semibold text-sm flex items-center justify-center space-x-2 active:bg-orange-50 transition-colors">
+<i class="fa-solid fa-location-dot text-lg"></i>
+<span>View Store Directions</span>
+</button>
+<button id="bookAnotherBtn" class="w-full bg-transparent text-rabity-orange py-2 font-semibold text-sm active:opacity-70 transition-opacity">
+         Book Another Slot
        </button>
-<p class="mb-3 flex items-center justify-center gap-1.5 text-xs font-medium text-brand-muted">
-<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-         You'll receive a confirmation via Zalo or SMS.
-       </p>
-<a class="flex items-center justify-center gap-1 text-xs font-semibold text-brand-muted hover:text-brand-text" href="#">
-<svg class="h-3 w-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-         rabity.vn
-       </a>
+</section>
 </div>
-</div>
-<!-- END: Form Sections -->
 </main>
+<div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 bg-rabity-textDark text-white px-6 py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm font-medium z-50 opacity-0 -translate-y-2 transition-all duration-300 pointer-events-none" style="min-width: 280px; text-align: center; justify-content: center;">
+<i id="toastIcon" class="fa-solid fa-circle-check text-green-400"></i>
+<span id="toastMsg"></span>
+</div>
 <script>
- // Populate age dropdown
- const ageSelect = document.getElementById('ageSelect');
- for (let i = 1; i <= 18; i++) {
-   const opt = document.createElement('option');
-   opt.value = i;
-   opt.textContent = i;
-   ageSelect.appendChild(opt);
+ function showToast(msg, icon) {
+   const toast = document.getElementById('toast');
+   const toastIcon = document.getElementById('toastIcon');
+   const toastMsg = document.getElementById('toastMsg');
+   toastMsg.textContent = msg;
+   toastIcon.className = icon;
+   toast.style.opacity = '1';
+   toast.style.transform = 'translate(-50%, 0)';
+   clearTimeout(toast._t);
+   toast._t = setTimeout(() => {
+     toast.style.opacity = '0';
+     toast.style.transform = 'translate(-50%, -8px)';
+   }, 2500);
  }
 
-
- // Store select ↔ card sync
- const storeSelect = document.getElementById('storeSelect');
- const stores = document.querySelectorAll('[data-store]');
- const storeMap = { 'vincom': 0, 'aeon': 1, 'thiso': 2 };
-
-
- function selectStore(idx) {
-   stores.forEach((c, i) => {
-     c.classList.remove('border-brand-orange', 'border-2', 'bg-brand-lightOrange');
-     c.classList.add('border-brand-border');
-     const check = c.querySelector('.store-check');
-     if (check) check.remove();
-     const icon = c.querySelector('.store-icon');
-     if (icon) { icon.classList.remove('text-brand-orange'); icon.classList.add('text-brand-muted'); }
-     const label = c.querySelector('.store-label');
-     if (label) { label.classList.remove('font-semibold', 'text-brand-text'); label.classList.add('font-medium', 'text-brand-muted'); }
-   });
-   const card = stores[idx];
-   card.classList.remove('border-brand-border');
-   card.classList.add('border-brand-orange', 'border-2', 'bg-brand-lightOrange');
-   const check = document.createElement('div');
-   check.className = 'store-check absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-brand-orange text-white';
-   check.innerHTML = '<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>';
-   card.appendChild(check);
-   const icon = card.querySelector('.store-icon');
-   if (icon) { icon.classList.remove('text-brand-muted'); icon.classList.add('text-brand-orange'); }
-   const label = card.querySelector('.store-label');
-   if (label) { label.classList.remove('font-medium', 'text-brand-muted'); label.classList.add('font-semibold', 'text-brand-text'); }
- }
-
-
- stores.forEach((card, idx) => {
-   card.addEventListener('click', () => {
-     selectStore(idx);
-     const vals = ['vincom', 'aeon', 'thiso'];
-     storeSelect.value = vals[idx];
-   });
+ document.getElementById('addToCalendarBtn')?.addEventListener('click', function() {
+   showToast('Successfully added to calendar!', 'fa-solid fa-circle-check text-green-400');
  });
 
-
- storeSelect.addEventListener('change', () => {
-   const idx = storeMap[storeSelect.value];
-   if (idx !== undefined) selectStore(idx);
+ document.getElementById('viewDirectionsBtn')?.addEventListener('click', function() {
+   showToast('Opening store location...', 'fa-solid fa-location-dot text-rabity-orange');
  });
 
-
- // Date selection
- const dateBtns = document.querySelectorAll('[data-date]');
- dateBtns.forEach(btn => {
-   btn.addEventListener('click', () => {
-     dateBtns.forEach(b => {
-       b.classList.remove('border-brand-orange', 'bg-brand-lightOrange');
-       b.classList.add('border-brand-border');
-       const dayEl = b.querySelector('.date-day');
-       const numEl = b.querySelector('.date-num');
-       if (dayEl) { dayEl.classList.remove('text-brand-orange'); dayEl.classList.add('text-brand-muted'); }
-       if (numEl) { numEl.classList.remove('text-brand-orange', 'font-bold'); numEl.classList.add('text-brand-text', 'font-semibold'); }
-     });
-     btn.classList.remove('border-brand-border');
-     btn.classList.add('border-brand-orange', 'bg-brand-lightOrange');
-     const dayEl = btn.querySelector('.date-day');
-     const numEl = btn.querySelector('.date-num');
-     if (dayEl) { dayEl.classList.remove('text-brand-muted'); dayEl.classList.add('text-brand-orange'); }
-     if (numEl) { numEl.classList.remove('text-brand-text', 'font-semibold'); numEl.classList.add('text-brand-orange', 'font-bold'); }
-   });
- });
-
-
- // Time selection
- const timeBtns = document.querySelectorAll('[data-time]');
- timeBtns.forEach(btn => {
-   btn.addEventListener('click', () => {
-     if (btn.disabled) return;
-     timeBtns.forEach(b => {
-       b.classList.remove('bg-brand-orange', 'text-white', 'shadow-md', 'shadow-brand-orange/30', 'font-bold');
-       b.classList.add('border-brand-border', 'text-brand-text', 'font-semibold');
-       b.disabled = false;
-     });
-     btn.classList.remove('border-brand-border', 'text-brand-text', 'font-semibold');
-     btn.classList.add('bg-brand-orange', 'text-white', 'shadow-md', 'shadow-brand-orange/30', 'font-bold');
-     btn.disabled = true;
-   });
- });
-
-
- // Feature items (Section 5) - toggle orange highlight on click
- const features = document.querySelectorAll('[data-feature]');
- features.forEach(item => {
-   item.addEventListener('click', () => {
-     const isSelected = item.classList.contains('border-brand-orange');
-     if (isSelected) {
-       item.classList.add('border-brand-border');
-       item.classList.remove('border-brand-orange', 'bg-brand-lightOrange');
-     } else {
-       item.classList.remove('border-brand-border');
-       item.classList.add('border-brand-orange', 'bg-brand-lightOrange');
-     }
-   });
- });
-
-
- // Book Now → Confirmation
- document.getElementById('bookNowBtn')?.addEventListener('click', () => {
-   window.location.href = 'Confirmation.html';
- });
-
-
- // Date arrow animations (scroll left/right)
- document.getElementById('datePrev')?.addEventListener('click', function() {
-   this.style.transform = 'scale(0.9)';
-   setTimeout(() => this.style.transform = '', 150);
- });
- document.getElementById('dateNext')?.addEventListener('click', function() {
-   this.style.transform = 'scale(0.9)';
-   setTimeout(() => this.style.transform = '', 150);
+ document.getElementById('bookAnotherBtn')?.addEventListener('click', function() {
+   window.location.href = 'Firm.html';
  });
 </script>
-</body></html>
-
+</body>
+</html>
