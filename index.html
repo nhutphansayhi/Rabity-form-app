@@ -57,20 +57,22 @@
 </div>
 </header>
 <div class="px-5 space-y-4">
-<section class="bg-rabity-lightOrange rounded-2xl p-6 relative overflow-hidden">
-<div class="relative z-10">
-<h1 class="text-2xl font-bold text-rabity-textDark leading-tight mb-2">Booking<br/>Confirmed!</h1>
-<p class="text-sm text-rabity-textMuted leading-relaxed">Your child's Free Foot Check has been successfully booked.</p>
-</div>
-<div class="absolute right-0 bottom-0">
-<div class="relative w-52 h-52">
-<div class="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full status-badge flex items-center justify-center text-white border-4 border-white shadow-sm z-20 -ml-4">
-<i class="fa-solid fa-check text-2xl"></i>
-</div>
-<img alt="Happy Rabbit" class="w-[180px] h-auto z-10 object-contain" src="preview.png"/>
-</div>
-</div>
+
+<!-- ĐÃ FIX LỖI ĐÈ CHỮ (Sử dụng Flexbox để chia khoảng cách chuẩn hơn) -->
+<section class="bg-rabity-lightOrange rounded-2xl p-5 flex items-center justify-between overflow-hidden min-h-[170px]">
+  <div class="relative z-10 flex-1 pr-6">
+    <h1 class="text-2xl font-bold text-rabity-textDark leading-tight mb-2">Booking<br/>Confirmed!</h1>
+    <p class="text-sm text-rabity-textMuted leading-relaxed">Your child's Free Foot Check has been successfully booked.</p>
+  </div>
+  <div class="relative w-[150px] flex-shrink-0">
+    <div class="absolute -left-5 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full status-badge flex items-center justify-center text-white border-4 border-white shadow-sm z-20">
+      <i class="fa-solid fa-check text-2xl"></i>
+    </div>
+    <img alt="Happy Rabbit" class="w-full h-auto z-10 object-contain" src="preview.png"/>
+  </div>
 </section>
+<!-- KẾT THÚC PHẦN FIX -->
+
 <section class="bg-white border border-rabity-border rounded-2xl p-5">
 <h2 class="text-base font-bold mb-4">Appointment Summary</h2>
 <div class="space-y-0">
